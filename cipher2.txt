@@ -1,0 +1,17 @@
+module Cipher where
+
+import Data.Char
+
+shiftChar :: Char -> Int -> Char
+shiftChar char shift
+    | isUpper char = chr ((((ord char + shift) - upperbase) `mod`  length ['A'..'Z']) + upperbase)
+    | isLower char = chr ((((ord char + shift) - lowerbase) `mod` length ['a'..'z']) + lowerbase)
+    | otherwise      = char
+    where upperbase = ord 'A'
+          lowerbase = ord 'a'
+
+encrypt :: String -> Int -> String
+encrypt string shift = [shiftChar x shift | x <- string]
+
+decrypt :: String -> Int -> String
+decrypt string shift = encrypt string (negate shift)

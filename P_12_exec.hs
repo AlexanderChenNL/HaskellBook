@@ -1,0 +1,1 @@
+prob_21 b = sum [a | a <- [1..b], b `mod` a == 0, a /= b]

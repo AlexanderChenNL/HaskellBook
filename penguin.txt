@@ -1,0 +1,7 @@
+data WherePengiunsLive = 
+Galapagos
+| Antartica
+| Australia
+| SouthAfrica
+| SouthAmerica
+deriving (Eq, Show)
